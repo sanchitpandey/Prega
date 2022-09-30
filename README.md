@@ -38,6 +38,10 @@ We have seen this problem and identified there is nothing in the market which sp
 ## Want to contribute? 🎯
 
 
+You can contribute to this project under [Hacktoberfest 2022](https://hacktoberfest.com/)
+![hack](https://user-images.githubusercontent.com/58213083/193334808-aa022dff-825b-4cf8-a3d5-5e483c52ff67.png)
+
+
 If you are willing to contibute to this project, you are warmly welcome.
 Do check the [Contribution](https://github.com/Clueless-Community/Prega/blob/master/CONTRIBUTING.md) guidelines before contributing.
 
