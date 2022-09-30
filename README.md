@@ -5,13 +5,24 @@
 ----
 
 <p align="center">
-  <a href="https://github.com/Clueless-Community/Prega.io/issues"><img src="https://img.shields.io/github/issues/Clueless-Community/Prega.io.svg?style=for-the-badge&logo=appveyor" /></a>&nbsp;&nbsp;
-  <a href="https://github.com/Clueless-Community/Prega.io/fork"><img src="https://img.shields.io/github/forks/Clueless-Community//Prega.io.svg?style=for-the-badge&logo=appveyor" /></a>&nbsp;&nbsp;
-  <a href="#"><img src="https://img.shields.io/github/stars/Clueless-Community/Prega.io.svg?style=for-the-badge&logo=appveyor" /></a>&nbsp;&nbsp;
-  <a href="https://github.com/Clueless-Community/Prega.io/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Clueless-Community/Prega.io.svg?style=for-the-badge&logo=appveyor" /></a>&nbsp;&nbsp;
+  <a href="https://github.com/Clueless-Community/Prega/issues"><img src="https://img.shields.io/github/issues/Clueless-Community/Prega.svg?style=for-the-badge&logo=appveyor" /></a>&nbsp;&nbsp;
+  <a href="https://github.com/Clueless-Community/Prega/fork"><img src="https://img.shields.io/github/forks/Clueless-Community/Prega.svg?style=for-the-badge&logo=appveyor" /></a>&nbsp;&nbsp;
+  <a href="#"><img src="https://img.shields.io/github/stars/Clueless-Community/Prega.svg?style=for-the-badge&logo=appveyor" /></a>&nbsp;&nbsp;
+  <a href="https://github.com/Clueless-Community/Prega/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Clueless-Community/Prega.svg?style=for-the-badge&logo=appveyor" /></a>&nbsp;&nbsp;
 </p>
 
 ---
+
+
+## Tech Stack 💻
+
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
+
+
+## What is prega.io? 🤔
 
 <img width="1440" alt="Screenshot 2022-08-21 at 5 57 17 PM" src="https://user-images.githubusercontent.com/91758830/185790901-4df4825f-16fc-4254-a331-980a11f72ec9.png">
 
