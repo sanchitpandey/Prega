@@ -32,13 +32,13 @@ Also for every doctor visit they need to take a lot of previous reports, prescri
 
 We have seen this problem and identified there is nothing in the market which specifically handles this situation. And it's our mother for whom we are here. So, why not build something which can solve a big problem for them.
 
-[Read More]()
+[Read More](https://github.com/Clueless-Community/Prega/blob/master/About.md)
 
 
 ## Want to contribute? 🎯
 
 
 If you are willing to contibute to this project, you are warmly welcome.
-Do check the [Contribution]() guidelines before contributing.
+Do check the [Contribution](https://github.com/Clueless-Community/Prega/blob/master/CONTRIBUTING.md) guidelines before contributing.
 
 #### Take a moment to star ⭐ the project if you like it 😊
