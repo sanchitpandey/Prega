@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class EditDoc extends StatefulWidget {
   const EditDoc({Key? key}) : super(key: key);
@@ -75,6 +76,19 @@ class _EditDocState extends State<EditDoc> {
                         hintText: 'Date',
                         border: OutlineInputBorder(),
                       ),
+                      onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2000),
+                            lastDate: DateTime(2101));
+                        if (pickedDate != null) {
+                          setState(() {
+                            changeDate.text =
+                                DateFormat("yyyy-MM-dd").format(pickedDate);
+                          });
+                        }
+                      },
                     ),
                     const SizedBox(
                       height: 10,
@@ -143,6 +157,7 @@ class _EditDocState extends State<EditDoc> {
                     GestureDetector(
                       child: Container(
                         decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(7),
                             color: Color.fromARGB(255, 47, 46, 65),
                             boxShadow: [
                               BoxShadow(
@@ -168,7 +183,7 @@ class _EditDocState extends State<EditDoc> {
                           ),
                         ),
                       ),
-                      onTap: (){
+                      onTap: () {
                         // createUser();
                         // final user = FirebaseAuth.instance.currentUser!;
                         // final user1 = FirebaseFirestore.instance
