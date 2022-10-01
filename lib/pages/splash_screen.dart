@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:prega/pages/home.dart';
 
 class SplashScreen extends StatefulWidget {
+
+
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 Animation<double> secAnimation,
                 Widget child) {
               animation = CurvedAnimation(
-                  parent: animation, curve: Curves.easeInOut);
+                  parent: animation, curve: Curves.easeInOut); //for animation
 
               return ScaleTransition(
                 scale: animation,
