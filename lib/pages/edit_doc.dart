@@ -13,7 +13,8 @@ class EditDoc extends StatefulWidget {
 class _EditDocState extends State<EditDoc> {
   final _formkey = GlobalKey<FormState>();
   late var isChecked = false;
-  final changeTitle = TextEditingController();
+  final changeDate = TextEditingController();
+  final changeType = TextEditingController();
   final changeDoctorName = TextEditingController();
   final changeDescription = TextEditingController();
 
@@ -50,6 +51,13 @@ class _EditDocState extends State<EditDoc> {
             ],
           ),
           const SizedBox(
+            height: 10,
+          ),
+          Image.asset("assets/images/editDoc.png"),
+          const SizedBox(
+            height: 13,
+          ),
+          const SizedBox(
             height: 30,
           ),
           Padding(
@@ -60,10 +68,11 @@ class _EditDocState extends State<EditDoc> {
                 child: Column(
                   children: [
                     TextFormField(
-                      controller: changeTitle,
+                      controller: changeDate,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
-                        labelText: 'Title',
+                        labelText: 'Date',
+                        hintText: 'Date',
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -74,7 +83,20 @@ class _EditDocState extends State<EditDoc> {
                       controller: changeDoctorName,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
-                        labelText: 'Doctor Name',
+                        labelText: 'Doc Type',
+                        hintText: 'Doc Type',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextFormField(
+                      controller: changeDoctorName,
+                      keyboardType: TextInputType.text,
+                      decoration: const InputDecoration(
+                        labelText: "Doctor Name",
+                        hintText: "Doctor's Name",
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -87,6 +109,7 @@ class _EditDocState extends State<EditDoc> {
                       maxLines: 5,
                       decoration: const InputDecoration(
                         labelText: "Description",
+                        hintText: "Enter short discription",
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -117,27 +140,46 @@ class _EditDocState extends State<EditDoc> {
                     const SizedBox(
                       height: 15,
                     ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // createUser();
-                          // final user = FirebaseAuth.instance.currentUser!;
-                          // final user1 = FirebaseFirestore.instance
-                          //     .collection('user/${user.uid}/documents');
-                          // user1.doc(user1.)
-
-                          // Navigator.pop(context);
-                        },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                const Color.fromARGB(255, 47, 46, 65),
-                            fixedSize: const Size(double.infinity, 46)),
-                        child: const Text(
-                          "Save",
-                          style: TextStyle(fontSize: 18),
+                    GestureDetector(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 47, 46, 65),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(33, 178, 187, 0.51),
+                                blurRadius: 5,
+                                offset: Offset(-5, -5),
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(33, 178, 187, 0.51),
+                                blurRadius: 5,
+                                offset: Offset(5, 5),
+                              ),
+                            ]),
+                        width: double.infinity,
+                        height: 50,
+                        child: Center(
+                          child: Text(
+                            "Submit",
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500),
+                          ),
                         ),
                       ),
+                      onTap: (){
+                        // createUser();
+                        // final user = FirebaseAuth.instance.currentUser!;
+                        // final user1 = FirebaseFirestore.instance
+                        //     .collection('user/${user.uid}/documents');
+                        // user1.doc(user1.)
+
+                        // Navigator.pop(context);
+                      },
+                    ),
+                    const SizedBox(
+                      height: 15,
                     ),
                   ],
                 ),
