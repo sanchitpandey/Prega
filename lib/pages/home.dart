@@ -27,7 +27,6 @@ class Home extends StatelessWidget {
                 child: Text("Something went wrong!"),
               );
             } else {
-              return EditDoc();
               return const SignIn();
             }
           },
