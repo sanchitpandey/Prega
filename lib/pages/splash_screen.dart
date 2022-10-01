@@ -1,7 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:prega/pages/home.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
+
+
   const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _navigatehome();
+  }
+
+  _navigatehome() async {
+    await Future.delayed(Duration(seconds: 1), () {});
+    Navigator.pushReplacement(
+        context,
+        PageRouteBuilder(
+            transitionDuration: Duration(seconds: 1),
+            transitionsBuilder: (BuildContext context,
+                Animation<double> animation,
+                Animation<double> secAnimation,
+                Widget child) {
+              animation = CurvedAnimation(
+                  parent: animation, curve: Curves.easeInOut); //for animation
+
+              return ScaleTransition(
+                scale: animation,
+                child: child,
+                alignment: Alignment.center,
+              );
+            },
+            pageBuilder: (BuildContext context, Animation<double> animation,
+                Animation<double> secAnimation) {
+              return Home();
+            }));
+  }
 
   @override
   Widget build(BuildContext context) {
