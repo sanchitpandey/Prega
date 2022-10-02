@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:prega/pages/entry_page.dart';
 import 'package:prega/pages/signin_page.dart';
 
+import 'edit_doc.dart';
+
 // ignore: must_be_immutable
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
