@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:prega/pages/entry_page.dart';
+import 'package:prega/pages/onboarding.dart';
 import 'package:prega/pages/signin_page.dart';
 
 // ignore: must_be_immutable
@@ -18,8 +19,13 @@ class Home extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasData) {
-              createUser();
-              return const EntryPage();
+              createUser().then((isFirstLogin) {
+                if (isFirstLogin)
+                  return Onboarding();
+                else
+                  return EntryPage();
+              });
+              return EntryPage();
             } else if (snapshot.hasError) {
               return const Center(
                 child: Text("Something went wrong!"),
@@ -32,10 +38,11 @@ class Home extends StatelessWidget {
       );
   Future createUser() async {
     final user = FirebaseAuth.instance.currentUser!;
+    bool _firstLogin = false;
 
     final finalUser =
         FirebaseFirestore.instance.collection('user').doc(user.uid);
-    FirebaseFirestore.instance
+    await FirebaseFirestore.instance
         .collection('user')
         .doc(user.uid)
         .get()
@@ -56,7 +63,9 @@ class Home extends StatelessWidget {
           'image': user.photoURL
         };
         await finalUser.set(data);
+        _firstLogin = true;
       }
     });
+    return _firstLogin;
   }
 }
