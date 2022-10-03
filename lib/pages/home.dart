@@ -20,9 +20,7 @@ class Home extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasData) {
-              createUser().then((isFirstLogin) {
-                if (isFirstLogin) FirstLogin.value = true;
-              });
+              createUser();
               return EntryPage();
             } else if (snapshot.hasError) {
               return const Center(
@@ -40,7 +38,7 @@ class Home extends StatelessWidget {
 
     final finalUser =
         FirebaseFirestore.instance.collection('user').doc(user.uid);
-    await FirebaseFirestore.instance
+    FirebaseFirestore.instance
         .collection('user')
         .doc(user.uid)
         .get()
@@ -61,9 +59,8 @@ class Home extends StatelessWidget {
           'image': user.photoURL
         };
         await finalUser.set(data);
-        _firstLogin = true;
+        FirstLogin.value = true;
       }
     });
-    return _firstLogin;
   }
 }
