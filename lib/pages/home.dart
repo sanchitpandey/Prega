@@ -3,8 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:prega/pages/entry_page.dart';
 import 'package:prega/pages/signin_page.dart';
-
-import 'edit_doc.dart';
+import '../constants.dart';
 
 // ignore: must_be_immutable
 class Home extends StatelessWidget {
@@ -21,7 +20,7 @@ class Home extends StatelessWidget {
               );
             } else if (snapshot.hasData) {
               createUser();
-              return const EntryPage();
+              return EntryPage();
             } else if (snapshot.hasError) {
               return const Center(
                 child: Text("Something went wrong!"),
@@ -58,6 +57,7 @@ class Home extends StatelessWidget {
           'image': user.photoURL
         };
         await finalUser.set(data);
+        FirstLogin.value = true;
       }
     });
   }

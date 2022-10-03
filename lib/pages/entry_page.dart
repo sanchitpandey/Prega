@@ -2,14 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:prega/pages/add_doc.dart';
 import 'package:prega/pages/feeds.dart';
+import 'package:prega/pages/onboarding.dart';
 import 'package:prega/pages/profile.dart';
 import 'package:prega/pages/tips.dart';
 
+import '../constants.dart';
+
 void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -34,6 +42,14 @@ class _EntryPageState extends State<EntryPage> {
     const Profile(),
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    FirstLogin.addListener(() {
+      setState(() {});
+    });
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -42,35 +58,37 @@ class _EntryPageState extends State<EntryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _widgetOptions.elementAt(_selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.rocket),
-            label: 'Feeds',
-            backgroundColor: Color.fromARGB(255, 27, 27, 27),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_a_photo_rounded),
-            label: 'Add Docs',
-            backgroundColor: Color.fromARGB(255, 27, 27, 27),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.atom),
-            label: 'Tips',
-            backgroundColor: Color.fromARGB(255, 27, 27, 27),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.image),
-            label: 'Profile',
-            backgroundColor: Color.fromARGB(255, 27, 27, 27),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(255, 201, 201, 201),
-        onTap: _onItemTapped,
-      ),
-    );
+    return FirstLogin.value
+        ? Onboarding()
+        : Scaffold(
+            body: _widgetOptions.elementAt(_selectedIndex),
+            bottomNavigationBar: BottomNavigationBar(
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(FontAwesomeIcons.rocket),
+                  label: 'Feeds',
+                  backgroundColor: Color.fromARGB(255, 27, 27, 27),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.add_a_photo_rounded),
+                  label: 'Add Docs',
+                  backgroundColor: Color.fromARGB(255, 27, 27, 27),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(FontAwesomeIcons.atom),
+                  label: 'Tips',
+                  backgroundColor: Color.fromARGB(255, 27, 27, 27),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.image),
+                  label: 'Profile',
+                  backgroundColor: Color.fromARGB(255, 27, 27, 27),
+                ),
+              ],
+              currentIndex: _selectedIndex,
+              selectedItemColor: const Color.fromARGB(255, 201, 201, 201),
+              onTap: _onItemTapped,
+            ),
+          );
   }
 }
