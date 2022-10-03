@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prega/pages/entry_page.dart';
+import 'package:prega/constants.dart';
 
 final List<OnboardData> onboardList = [
   OnboardData("assets/images/docPic.png", "Best Pregnancy Advice & Tips",
@@ -70,29 +70,7 @@ class _OnboardingState extends State<Onboarding> {
           child: ElevatedButton(
             onPressed: () {
               if (_pageIndex == onboardList.length - 1) {
-                Navigator.pushReplacement(
-                    context,
-                    PageRouteBuilder(
-                        transitionDuration: Duration(milliseconds: 1000),
-                        transitionsBuilder: (BuildContext context,
-                            Animation<double> animation,
-                            Animation<double> secAnimation,
-                            Widget child) {
-                          animation = CurvedAnimation(
-                              parent: animation,
-                              curve: Curves.ease); //for animation
-
-                          return ScaleTransition(
-                            scale: animation,
-                            child: child,
-                            alignment: Alignment.center,
-                          );
-                        },
-                        pageBuilder: (BuildContext context,
-                            Animation<double> animation,
-                            Animation<double> secAnimation) {
-                          return EntryPage();
-                        }));
+                FirstLogin.value = false;
               }
               _pageController.nextPage(
                   duration: Duration(milliseconds: 500), curve: Curves.ease);

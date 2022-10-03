@@ -2,8 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:prega/pages/entry_page.dart';
-import 'package:prega/pages/onboarding.dart';
 import 'package:prega/pages/signin_page.dart';
+
+import '../constants.dart';
 
 // ignore: must_be_immutable
 class Home extends StatelessWidget {
@@ -20,10 +21,7 @@ class Home extends StatelessWidget {
               );
             } else if (snapshot.hasData) {
               createUser().then((isFirstLogin) {
-                if (isFirstLogin)
-                  return Onboarding();
-                else
-                  return EntryPage();
+                if (isFirstLogin) FirstLogin.value = true;
               });
               return EntryPage();
             } else if (snapshot.hasError) {
