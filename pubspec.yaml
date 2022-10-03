@@ -38,7 +38,7 @@ dependencies:
     sdk: flutter
   flutter_dotenv: ^5.0.2
   flutter_launcher_icons: ^0.10.0
-  flutter_native_splash: ^2.2.10+1
+  flutter_native_splash:
   font_awesome_flutter: ^10.1.0
   google_fonts: ^3.0.1
   google_sign_in: ^5.4.1

@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:prega/pages/entry_page.dart';
 import 'package:prega/pages/signin_page.dart';
-
 import '../constants.dart';
 
 // ignore: must_be_immutable
@@ -34,7 +33,6 @@ class Home extends StatelessWidget {
       );
   Future createUser() async {
     final user = FirebaseAuth.instance.currentUser!;
-    bool _firstLogin = false;
 
     final finalUser =
         FirebaseFirestore.instance.collection('user').doc(user.uid);
